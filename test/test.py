@@ -20,6 +20,7 @@ async def test_comparator(dut):
     dut.uio_in.value = 0
     await ClockCycles(dut.clk, 5)
     dut.rst_n.value = 1
+    await ClockCycles(dut.clk, 1)  # wait for reset release
 
     # Test all 2-bit combinations
     for A in range(4):  # 0..3
@@ -32,7 +33,15 @@ async def test_comparator(dut):
             expected_eq = int(A == B)
             expected_lt = int(A < B)
 
+            # Read the DUT outputs as integer
+            uo_val = int(dut.uo_out.value)
+
+            # Bit positions: [0]=GT, [1]=EQ, [2]=LT
+            got_gt = (uo_val >> 0) & 1
+            got_eq = (uo_val >> 1) & 1
+            got_lt = (uo_val >> 2) & 1
+
             # Assert the outputs
-            assert dut.uo_out[0].value == expected_gt, f"A={A}, B={B}, A>B mismatch"
-            assert dut.uo_out[1].value == expected_eq, f"A={A}, B={B}, A=B mismatch"
-            assert dut.uo_out[2].value == expected_lt, f"A={A}, B={B}, A<B mismatch"
+            assert got_gt == expected_gt, f"A={A}, B={B}, A>B mismatch"
+            assert got_eq == expected_eq, f"A={A}, B={B}, A=B mismatch"
+            assert got_lt == expected_lt, f"A={A}, B={B}, A<B mismatch"
