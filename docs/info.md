@@ -75,4 +75,8 @@ All outputs correctly reflect the comparator behavior.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+- The 2-bit comparator Tiny Tapeout project, no external hardware is needed.
+- The design is fully combinational digital logic: just gates (AND, OR, NOT, XNOR).
+- Tiny Tapeout provides a standard chip template, power rails, and I/O pads.
+- All inputs (ui_in) and outputs (uo_out) connect directly to the chip pins — no microcontrollers, FPGAs, or other boards are required.
+- Verification is done via a Verilog testbench or simulation in local environment; hence we don’t need physical hardware until the chip is fabricated.
