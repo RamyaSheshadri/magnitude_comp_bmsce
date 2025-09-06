@@ -25,24 +25,23 @@ Let `A = A1 A0` and `B = B1 B0`:
 
 ## Logic Implementation
 
-### Equality (A = B)
+### Equality (A = B):
 ```verilog
 assign uo_out[1] = (~(A1 ^ B1)) & (~(A0 ^ B0));
 ```
 
 Both bits must match for the equality output to be high.
 
--**Greater Than (A > B):**
+### Greater Than (A > B):
 ```verilog
  assign uo_out[0] = (A1 & ~B1) | ((~(A1 ^ B1)) & (A0 & ~B0));
-
-If the MSB of A is greater than B, or if MSBs are equal and LSB of A > LSB of B, output is high.
 ```
+If the MSB of A is greater than B, or if MSBs are equal and LSB of A > LSB of B, output is high.
 
--**Less Than (A < B):** 
+
+### Less Than (A < B):
 ```verilog
 assign uo_out[2] = (~A1 & B1) | ((~(A1 ^ B1)) & (~A0 & B0));
-
 ```
 
 | Pin          | Function           |
