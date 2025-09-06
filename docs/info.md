@@ -52,6 +52,7 @@ assign uo_out[2] = (~A1 & B1) | ((~(A1 ^ B1)) & (~A0 & B0));
 | `uo_out[1]`  | A = B              |
 | `uo_out[2]`  | A < B              |
 | Other pins   | Unused / tied to 0 |
+
 Bidirectional pins (uio_in, uio_out, uio_oe) are not used in this project.
 
 
