@@ -1,5 +1,5 @@
 # Tiny Tapeout project information
-project: "2 bit magnitude comparator"    
+project:     
   title:        "2 bit magnitude comparator"      # Project title
   author:       "BMSCE"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
@@ -53,4 +53,4 @@ pinout:
   uio[7]: ""
 
 # Do not change!
-yaml_version: 6
+yaml_version: 4
