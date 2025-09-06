@@ -23,9 +23,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 Let `A = A1 A0` and `B = B1 B0`:
 
-- **Equality (A = B):**  
-  ```verilog
- assign uo_out[1] = (~(A1 ^ B1)) & (~(A0 ^ B0));
+## Logic Implementation
+
+### Equality (A = B)
+```verilog
+assign uo_out[1] = (~(A1 ^ B1)) & (~(A0 ^ B0));
+
 
 Both bits must match for the equality output to be high.
 
