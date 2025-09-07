@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 BMS College of Engineering
+ * Copyright (c) 2024 BMSCE
  * SPDX-License-Identifier: Apache-2.0
  */
 
