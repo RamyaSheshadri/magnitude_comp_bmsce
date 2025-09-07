@@ -23,8 +23,10 @@ module tb ();
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
 
+ integer A, B;  // <-- moved outside initial block
+
   // Replace tt_um_example with your module name:
- tt_um_BMSCE_project_1 uut(
+tt_um_BMSCE_project_1 uut(
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
@@ -44,7 +46,6 @@ module tb ();
     ena = 1;
     uio_in = 8'b0;
 
-    integer A, B;
     for (A = 0; A < 4; A = A + 1) begin
       for (B = 0; B < 4; B = B + 1) begin
         ui_in[1:0] = A;      // A[1:0]
@@ -58,4 +59,4 @@ module tb ();
     $finish;
   end
 
-endmodule
+endmodule 
