@@ -56,7 +56,8 @@ tt_um_BMSCE_project_1 uut(
                   ui_in[1:0], ui_in[3:2], uo_out[0], uo_out[1], uo_out[2]);
       end
     end
-    $finish;
+   
   end
 
 endmodule 
+ 
